@@ -8,20 +8,24 @@ function App() {
     { name: "Diana", age: 19, grade: "D" },
   ];
 
-  const filteredStudents = students.filter(students => students.age >= 18);
-  console.log(filteredStudents)
+  const filteredStudents = students.filter((students) => students.age >= 18);
 
   return (
     <div>
       <h1>학생 목록</h1>
       <ul>
         {filteredStudents.map((students, idx) => {
-          <li key={idx}>
-            {students.name}
+          return (
+            <li
+              key={idx}
+              onClick={() =>
+                alert(`나이: ${students.age}, 점수: ${students.grade}`)
+              }
+            >
+              {students.name}
             </li>
+          );
         })}
-        {/* TODO: map을 사용해서 filteredStudents를 여기에 렌더링하세요. */}
-        {/* TODO: 학생이름을 클릭하면 나이와 점수가 alert 돼야 해요.*/}
       </ul>
     </div>
   );
